@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  margin: 0;
+}
+.container {
+  max-width: 760px;
+  margin: 40px auto;
+  padding: 20px;
+}
+.card {
+  background: white;
+  padding: 20px;
+  margin: 18px 0;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.08);
+}
+input, select, button {
+  padding: 11px;
+  margin: 6px 4px 6px 0;
+}
+button { cursor: pointer; }
