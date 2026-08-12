@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Northstar Support</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <main class="container">
+ <h1>Northstar Self-Service Support</h1>
+ <p>Get quick help without opening a support ticket.</p>
+ <section class="card">
+ <h2>Order Status</h2>
+ <input id="orderId" placeholder="Example: ORD004">
+ <button onclick="checkOrder()">Check Order</button>
+ <p id="orderResult"></p>
+ </section>
+ <section class="card">
+ <h2>Stock Availability</h2>
+ <input id="product" placeholder="Example: Blue T-Shirt">
+ <input id="size" placeholder="Example: M">
+ <button onclick="checkStock()">Check Stock</button>
+ <p id="stockResult"></p>
+ </section>
+ <section class="card">
+ <h2>Returns & Refunds</h2>
+ <select id="returnReason">
+ <option value="">Choose a question</option>
+ <option value="return">How do I return an item?</option>
+ <option value="refund">When will I get my refund?</option>
+ </select>
+ <button onclick="checkReturn()">Get Help</button>
+ <p id="returnResult"></p>
+ </section>
+ </main>
+ <script src="script.js"></script>
+</body>
+</html>
