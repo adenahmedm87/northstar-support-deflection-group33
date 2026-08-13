@@ -21,10 +21,10 @@ document.getElementById("orderBtn").addEventListener("click", () => {
   sendRequest({ type: "order", orderId }, "orderResult");
 }
 
-function checkStock() {
+document.getElementById("stockBtn").addEventListener("click", () => {
   const product = document.getElementById("product").value.trim();
   const size = document.getElementById("size").value.trim();
-  sendRequest({type:"stock", product, size}, "stockResult");
+  sendRequest({ type: "stock", product, size }, "stockResult");
 }
 
 function checkReturn() {
