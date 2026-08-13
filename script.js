@@ -16,9 +16,9 @@ async function sendRequest(payload, resultId) {
   }
 }
 
-function checkOrder() {
+document.getElementById("orderBtn").addEventListener("click", () => {
   const orderId = document.getElementById("orderId").value.trim();
-  sendRequest({type:"order", orderId}, "orderResult");
+  sendRequest({ type: "order", orderId }, "orderResult");
 }
 
 function checkStock() {
