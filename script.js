@@ -1,4 +1,4 @@
-const WEBHOOK_URL = "PASTE_N8N_PRODUCTION_WEBHOOK_URL_HERE";
+const WEBHOOK_URL = "https://adenahmed970.app.n8n.cloud/webhook/northstar-support";
 
 async function sendRequest(payload, resultId) {
   const result = document.getElementById(resultId);
