@@ -19,13 +19,13 @@ async function sendRequest(payload, resultId) {
 document.getElementById("orderBtn").addEventListener("click", () => {
   const orderId = document.getElementById("orderId").value.trim();
   sendRequest({ type: "order", orderId }, "orderResult");
-}
+});
 
 document.getElementById("stockBtn").addEventListener("click", () => {
   const product = document.getElementById("product").value.trim();
   const size = document.getElementById("size").value.trim();
   sendRequest({ type: "stock", product, size }, "stockResult");
-}
+});
 
 function checkReturn() {
   const question = document.getElementById("returnReason").value;
