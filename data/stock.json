@@ -1,0 +1,12 @@
+[
+  {"product":"Blue T-Shirt","size":"S","status":"In Stock"},
+  {"product":"Blue T-Shirt","size":"M","status":"In Stock"},
+  {"product":"Blue T-Shirt","size":"L","status":"Out of Stock"},
+  {"product":"Black Hoodie","size":"M","status":"In Stock"},
+  {"product":"Black Hoodie","size":"L","status":"Out of Stock"},
+  {"product":"Running Shoes","size":"40","status":"In Stock"},
+  {"product":"Running Shoes","size":"41","status":"In Stock"},
+  {"product":"Running Shoes","size":"42","status":"Out of Stock"},
+  {"product":"Denim Jacket","size":"M","status":"In Stock"},
+  {"product":"Denim Jacket","size":"L","status":"Out of Stock"},
+]
