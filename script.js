@@ -31,4 +31,4 @@ function checkReturn() {
   const question = document.getElementById("returnReason").value;
   sendRequest({type:"return", question}, "returnResult");
 }
-});
+
