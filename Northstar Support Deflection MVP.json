@@ -1,0 +1,194 @@
+{
+  "name": "Northstar Support Deflection MVP",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "northstar-support",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e473169d-c705-4791-89e2-013eca6ca70b",
+      "name": "Webhook",
+      "webhookId": "bdf5679a-c498-45a7-ac01-9aad25737eb8"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{$json.body.type}}",
+                    "rightValue": "order",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "a231bf66-2a5b-4d7b-a99d-eba6ad4aa802"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Order"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "a769c971-c755-42c0-aaf3-cd59b23b1b96",
+                    "leftValue": "={{$json.body.type}}",
+                    "rightValue": "stock",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Stock"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        0
+      ],
+      "id": "d6829d01-9582-4d2d-b18f-29b80c40d8e0",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        672,
+        -32
+      ],
+      "id": "a5f1fceb-5f93-49c3-b6a1-749d63dc43c9",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "const orders = {\n  \"ORD001\": {\n    status: \"Processing\",\n    product: \"Blue T-Shirt\",\n    trackingNumber: \"TRK001\",\n    expectedDelivery: \"18 Aug 2026\",\n    deliveryCentre: \"Nairobi Central Hub\"\n  },\n  \"ORD002\": {\n    status: \"Shipped\",\n    product: \"Black Hoodie\",\n    trackingNumber: \"TRK002\",\n    expectedDelivery: \"16 Aug 2026\",\n    deliveryCentre: \"Westlands Pickup Centre\"\n  },\n  \"ORD003\": {\n    status: \"Out for Delivery\",\n    product: \"Running Shoes\",\n    trackingNumber: \"TRK003\",\n    expectedDelivery: \"14 Aug 2026\",\n    deliveryCentre: \"Thika Distribution Centre\"\n  },\n  \"ORD004\": {\n    status: \"Delivered\",\n    product: \"Blue T-Shirt\",\n    trackingNumber: \"TRK004\",\n    expectedDelivery: \"13 Aug 2026\",\n    deliveryCentre: \"Nairobi Central Hub\"\n  },\n  \"ORD005\": {\n    status: \"Processing\",\n    product: \"Denim Jacket\",\n    trackingNumber: \"TRK005\",\n    expectedDelivery: \"19 Aug 2026\",\n    deliveryCentre: \"Nakuru Collection Point\"\n  },\n  \"ORD006\": {\n    status: \"Shipped\",\n    product: \"Black Hoodie\",\n    trackingNumber: \"TRK006\",\n    expectedDelivery: \"17 Aug 2026\",\n    deliveryCentre: \"Mombasa Delivery Hub\"\n  },\n  \"ORD007\": {\n    status: \"Delivered\",\n    product: \"Running Shoes\",\n    trackingNumber: \"TRK007\",\n    expectedDelivery: \"12 Aug 2026\",\n    deliveryCentre: \"Westlands Pickup Centre\"\n  },\n  \"ORD008\": {\n    status: \"Out for Delivery\",\n    product: \"Denim Jacket\",\n    trackingNumber: \"TRK008\",\n    expectedDelivery: \"14 Aug 2026\",\n    deliveryCentre: \"Thika Distribution Centre\"\n  },\n  \"ORD009\": {\n    status: \"Processing\",\n    product: \"Blue T-Shirt\",\n    trackingNumber: \"TRK009\",\n    expectedDelivery: \"20 Aug 2026\",\n    deliveryCentre: \"Nakuru Collection Point\"\n  },\n  \"ORD010\": {\n    status: \"Shipped\",\n    product: \"Black Hoodie\",\n    trackingNumber: \"TRK010\",\n    expectedDelivery: \"18 Aug 2026\",\n    deliveryCentre: \"Mombasa Delivery Hub\"\n  }\n};\n\nconst id = $(\"Webhook\").item.json.body.orderId?.trim().toUpperCase();\n\nif (!id) {\n  return [{\n    json: {\n      message: \"Please enter an order number.\"\n    }\n  }];\n}\n\nif (!orders[id]) {\n  return [{\n    json: {\n      message: \"Order not found. Please check the order number.\"\n    }\n  }];\n}\n\nconst order = orders[id];\n\nconst deliveryLabel =\n  order.status === \"Delivered\"\n    ? `Delivered On: ${order.expectedDelivery}`\n    : `Expected Delivery: ${order.expectedDelivery}`;\n\nreturn [{\n  json: {\n    message:\n      `Order ${id}\\n` +\n      `Product: ${order.product}\\n` +\n      `Status: ${order.status}\\n` +\n      `Tracking: ${order.trackingNumber}\\n` +\n      `${deliveryLabel}\\n` +\n      `Fulfilment Centre: ${order.deliveryCentre}`\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        0
+      ],
+      "id": "11a0e4c3-6214-469b-968c-5ce7111c4e74",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "const stock = [\n  {\n    product: \"Blue T-Shirt\",\n    size: \"S\",\n    status: \"In Stock\",\n    quantity: 8,\n    restockDate: null,\n    availableAt: \"Nairobi Central Store\"\n  },\n  {\n    product: \"Blue T-Shirt\",\n    size: \"M\",\n    status: \"In Stock\",\n    quantity: 12,\n    restockDate: null,\n    availableAt: \"Westlands Store\"\n  },\n  {\n    product: \"Blue T-Shirt\",\n    size: \"L\",\n    status: \"Out of Stock\",\n    quantity: 0,\n    restockDate: \"20 Aug 2026\",\n    availableAt: null\n  },\n  {\n    product: \"Black Hoodie\",\n    size: \"M\",\n    status: \"In Stock\",\n    quantity: 6,\n    restockDate: null,\n    availableAt: \"Thika Store\"\n  },\n  {\n    product: \"Black Hoodie\",\n    size: \"L\",\n    status: \"Out of Stock\",\n    quantity: 0,\n    restockDate: \"22 Aug 2026\",\n    availableAt: null\n  },\n  {\n    product: \"Running Shoes\",\n    size: \"40\",\n    status: \"In Stock\",\n    quantity: 5,\n    restockDate: null,\n    availableAt: \"Nairobi Central Store\"\n  },\n  {\n    product: \"Running Shoes\",\n    size: \"41\",\n    status: \"In Stock\",\n    quantity: 7,\n    restockDate: null,\n    availableAt: \"Mombasa Store\"\n  },\n  {\n    product: \"Running Shoes\",\n    size: \"42\",\n    status: \"Out of Stock\",\n    quantity: 0,\n    restockDate: \"24 Aug 2026\",\n    availableAt: null\n  },\n  {\n    product: \"Denim Jacket\",\n    size: \"M\",\n    status: \"In Stock\",\n    quantity: 4,\n    restockDate: null,\n    availableAt: \"Nakuru Store\"\n  },\n  {\n    product: \"Denim Jacket\",\n    size: \"L\",\n    status: \"Out of Stock\",\n    quantity: 0,\n    restockDate: \"21 Aug 2026\",\n    availableAt: null\n  }\n];\n\nconst body = $(\"Webhook\").item.json.body;\n\nconst product = body.product?.trim().toLowerCase();\nconst size = body.size?.trim().toLowerCase();\n\nif (!product || !size) {\n  return [{\n    json: {\n      message: \"Please enter both product and size.\"\n    }\n  }];\n}\n\nconst match = stock.find(\n  item =>\n    item.product.toLowerCase() === product &&\n    item.size.toLowerCase() === size\n);\n\nif (!match) {\n  return [{\n    json: {\n      message: \"Product/size combination not found.\"\n    }\n  }];\n}\n\nlet message =\n  `${match.product}, size ${match.size}\\n` +\n  `Status: ${match.status}\\n` +\n  `Quantity: ${match.quantity}`;\n\nif (match.status === \"In Stock\") {\n  message += `\\nAvailable at: ${match.availableAt}`;\n} else {\n  message += `\\nExpected Restock: ${match.restockDate}`;\n}\n\nreturn [{\n  json: {\n    message\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        496,
+        144
+      ],
+      "id": "c02ebd97-30e5-4462-b3d8-d329965952bc",
+      "name": "Code in JavaScript1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "d136fbd3-3060-4fc3-b9c6-0e8bd6b81e10",
+  "meta": {
+    "instanceId": "1235b0bcabc85d6aeec7b8ede98b1aeb013a04020d7421899ea29e55461f165b"
+  },
+  "nodeGroups": [],
+  "id": "EaIX1YIce2RlujhO",
+  "tags": []
+}
