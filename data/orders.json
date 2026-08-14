@@ -4,80 +4,69 @@
     "status": "Processing",
     "product": "Blue T-Shirt",
     "trackingNumber": "TRK001",
-    "expectedDelivery": "18 Aug 2026",
-    "deliveryCentre": "Nairobi Central Hub"
+    "expectedDelivery": "20 Aug 2026"
   },
   {
     "orderId": "ORD002",
     "status": "Shipped",
     "product": "Black Hoodie",
     "trackingNumber": "TRK002",
-    "expectedDelivery": "16 Aug 2026",
-    "deliveryCentre": "Westlands Pickup Centre"
+    "expectedDelivery": "18 Aug 2026"
   },
   {
     "orderId": "ORD003",
     "status": "Out for Delivery",
     "product": "Running Shoes",
     "trackingNumber": "TRK003",
-    "expectedDelivery": "14 Aug 2026",
-    "deliveryCentre": "Thika Distribution Centre"
+    "expectedDelivery": "16 Aug 2026"
   },
   {
     "orderId": "ORD004",
     "status": "Delivered",
     "product": "Blue T-Shirt",
     "trackingNumber": "TRK004",
-    "expectedDelivery": "13 Aug 2026",
-    "deliveryCentre": "Nairobi Central Hub"
+    "expectedDelivery": "14 Aug 2026"
   },
   {
     "orderId": "ORD005",
     "status": "Processing",
     "product": "Denim Jacket",
     "trackingNumber": "TRK005",
-    "expectedDelivery": "19 Aug 2026",
-    "deliveryCentre": "Nakuru Collection Point"
+    "expectedDelivery": "21 Aug 2026"
   },
   {
     "orderId": "ORD006",
     "status": "Shipped",
     "product": "Black Hoodie",
     "trackingNumber": "TRK006",
-    "expectedDelivery": "17 Aug 2026",
-    "deliveryCentre": "Mombasa Delivery Hub"
+    "expectedDelivery": "19 Aug 2026"
   },
   {
     "orderId": "ORD007",
     "status": "Delivered",
     "product": "Running Shoes",
     "trackingNumber": "TRK007",
-    "expectedDelivery": "12 Aug 2026",
-    "deliveryCentre": "Westlands Pickup Centre"
+    "expectedDelivery": "13 Aug 2026"
   },
   {
     "orderId": "ORD008",
     "status": "Out for Delivery",
     "product": "Denim Jacket",
     "trackingNumber": "TRK008",
-    "expectedDelivery": "14 Aug 2026",
-    "deliveryCentre": "Thika Distribution Centre"
+    "expectedDelivery": "16 Aug 2026"
   },
   {
     "orderId": "ORD009",
     "status": "Processing",
     "product": "Blue T-Shirt",
     "trackingNumber": "TRK009",
-    "expectedDelivery": "20 Aug 2026",
-    "deliveryCentre": "Nakuru Collection Point"
+    "expectedDelivery": "22 Aug 2026"
   },
   {
     "orderId": "ORD010",
     "status": "Shipped",
     "product": "Black Hoodie",
     "trackingNumber": "TRK010",
-    "expectedDelivery": "18 Aug 2026",
-    "deliveryCentre": "Mombasa Delivery Hub"
+    "expectedDelivery": "20 Aug 2026"
   }
 ]
-
