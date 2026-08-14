@@ -27,8 +27,4 @@ document.getElementById("stockBtn").addEventListener("click", () => {
   sendRequest({ type: "stock", product, size }, "stockResult");
 });
 
-function checkReturn() {
-  const question = document.getElementById("returnReason").value;
-  sendRequest({type:"return", question}, "returnResult");
-}
 
