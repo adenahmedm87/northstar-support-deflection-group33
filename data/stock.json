@@ -1,12 +1,72 @@
 [
-  {"product":"Blue T-Shirt","size":"S","status":"In Stock"},
-  {"product":"Blue T-Shirt","size":"M","status":"In Stock"},
-  {"product":"Blue T-Shirt","size":"L","status":"Out of Stock"},
-  {"product":"Black Hoodie","size":"M","status":"In Stock"},
-  {"product":"Black Hoodie","size":"L","status":"Out of Stock"},
-  {"product":"Running Shoes","size":"40","status":"In Stock"},
-  {"product":"Running Shoes","size":"41","status":"In Stock"},
-  {"product":"Running Shoes","size":"42","status":"Out of Stock"},
-  {"product":"Denim Jacket","size":"M","status":"In Stock"},
-  {"product":"Denim Jacket","size":"L","status":"Out of Stock"},
+  {
+    "product": "Blue T-Shirt",
+    "size": "S",
+    "status": "In Stock",
+    "quantity": 8,
+    "restockDate": null
+  },
+  {
+    "product": "Blue T-Shirt",
+    "size": "M",
+    "status": "In Stock",
+    "quantity": 12,
+    "restockDate": null
+  },
+  {
+    "product": "Blue T-Shirt",
+    "size": "L",
+    "status": "Out of Stock",
+    "quantity": 0,
+    "restockDate": "20 Aug 2026"
+  },
+  {
+    "product": "Black Hoodie",
+    "size": "M",
+    "status": "In Stock",
+    "quantity": 6,
+    "restockDate": null
+  },
+  {
+    "product": "Black Hoodie",
+    "size": "L",
+    "status": "Out of Stock",
+    "quantity": 0,
+    "restockDate": "22 Aug 2026"
+  },
+  {
+    "product": "Running Shoes",
+    "size": "40",
+    "status": "In Stock",
+    "quantity": 5,
+    "restockDate": null
+  },
+  {
+    "product": "Running Shoes",
+    "size": "41",
+    "status": "In Stock",
+    "quantity": 7,
+    "restockDate": null
+  },
+  {
+    "product": "Running Shoes",
+    "size": "42",
+    "status": "Out of Stock",
+    "quantity": 0,
+    "restockDate": "24 Aug 2026"
+  },
+  {
+    "product": "Denim Jacket",
+    "size": "M",
+    "status": "In Stock",
+    "quantity": 4,
+    "restockDate": null
+  },
+  {
+    "product": "Denim Jacket",
+    "size": "L",
+    "status": "Out of Stock",
+    "quantity": 0,
+    "restockDate": "21 Aug 2026"
+  }
 ]
