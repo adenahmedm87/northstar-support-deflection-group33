@@ -4,79 +4,69 @@
     "size": "S",
     "status": "In Stock",
     "quantity": 8,
-    "restockDate": null,
-    "availableAt": "Nairobi Central Store"
+    "restockDate": null
   },
   {
     "product": "Blue T-Shirt",
     "size": "M",
     "status": "In Stock",
     "quantity": 12,
-    "restockDate": null,
-    "availableAt": "Westlands Store"
+    "restockDate": null
   },
   {
     "product": "Blue T-Shirt",
     "size": "L",
     "status": "Out of Stock",
     "quantity": 0,
-    "restockDate": "20 Aug 2026",
-    "availableAt": null
+    "restockDate": "22 Aug 2026"
   },
   {
     "product": "Black Hoodie",
     "size": "M",
     "status": "In Stock",
     "quantity": 6,
-    "restockDate": null,
-    "availableAt": "Thika Store"
+    "restockDate": null
   },
   {
     "product": "Black Hoodie",
     "size": "L",
     "status": "Out of Stock",
     "quantity": 0,
-    "restockDate": "22 Aug 2026",
-    "availableAt": null
+    "restockDate": "24 Aug 2026"
   },
   {
     "product": "Running Shoes",
     "size": "40",
     "status": "In Stock",
     "quantity": 5,
-    "restockDate": null,
-    "availableAt": "Nairobi Central Store"
+    "restockDate": null
   },
   {
     "product": "Running Shoes",
     "size": "41",
     "status": "In Stock",
     "quantity": 7,
-    "restockDate": null,
-    "availableAt": "Mombasa Store"
+    "restockDate": null
   },
   {
     "product": "Running Shoes",
     "size": "42",
     "status": "Out of Stock",
     "quantity": 0,
-    "restockDate": "24 Aug 2026",
-    "availableAt": null
+    "restockDate": "26 Aug 2026"
   },
   {
     "product": "Denim Jacket",
     "size": "M",
     "status": "In Stock",
     "quantity": 4,
-    "restockDate": null,
-    "availableAt": "Nakuru Store"
+    "restockDate": null
   },
   {
     "product": "Denim Jacket",
     "size": "L",
     "status": "Out of Stock",
     "quantity": 0,
-    "restockDate": "21 Aug 2026",
-    "availableAt": null
+    "restockDate": "23 Aug 2026"
   }
 ]
