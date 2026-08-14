@@ -107,22 +107,29 @@ document.querySelectorAll(".order-chip").forEach(chip => {
   });
 });
 
-// Available item buttons: fill the product input only.
-// Manual typing still remains possible.
-document.querySelectorAll(".product-chip").forEach(chip => {
-  chip.addEventListener("click", () => {
-    document.getElementById("product").value =
-      chip.dataset.product;
-    setSelected(".product-chip", chip);
-  });
-});
+// Stock section: Size dropdown options depend on the selected Product.
+const sizeOptions = {
+  "Blue T-Shirt": ["S", "M", "L"],
+  "Black Hoodie": ["M", "L"],
+  "Running Shoes": ["40", "41", "42"],
+  "Denim Jacket": ["M", "L"]
+};
 
-// Quick size buttons: fill the size input only.
-// Manual typing still remains possible.
-document.querySelectorAll(".size-chip").forEach(chip => {
-  chip.addEventListener("click", () => {
-    document.getElementById("size").value =
-      chip.dataset.size;
-    setSelected(".size-chip", chip);
+const productSelect = document.getElementById("product");
+const sizeSelect = document.getElementById("size");
+
+productSelect.addEventListener("change", () => {
+  const product = productSelect.value;
+  sizeSelect.innerHTML = '<option value="">Select size</option>';
+  if (!product || !sizeOptions[product]) {
+    sizeSelect.disabled = true;
+    return;
+  }
+  sizeOptions[product].forEach(size => {
+    const option = document.createElement("option");
+    option.value = size;
+    option.textContent = size;
+    sizeSelect.appendChild(option);
   });
+  sizeSelect.disabled = false;
 });
