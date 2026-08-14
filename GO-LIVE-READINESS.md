@@ -15,4 +15,4 @@ What Northstar needs for production
 - Connect real order-management and inventory APIs
 - Add authentication and customer privacy controls
 - Add monitoring/logging and production error handling
-- Replace sample records with production data
+- Replace sample records with production data.
