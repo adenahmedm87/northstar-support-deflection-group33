@@ -1,29 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Northstar Support</title>
- <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northstar Self-Service Support</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <main class="container">
- <h1>Northstar Self-Service Support</h1>
- <p>Get quick help without opening a support ticket.</p>
- <section class="card">
- <h2>Order Status</h2>
- <input id="orderId" placeholder="Example: ORD004">
- <button id="orderBtn">Check Order</button>
- <p id="orderResult"></p>
- </section>
- <section class="card">
- <h2>Stock Availability</h2>
- <input id="product" placeholder="Example: Blue T-Shirt">
- <input id="size" placeholder="Example: M">
- <button id="stockBtn">Check Stock</button>
- <p id="stockResult"></p>
- </section>
- </main>
- <script src="script.js?v=2"></script>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <h1>Northstar Self-Service Support</h1>
+        <p>Get quick answers to your order and stock queries.</p>
+      </div>
+      <div class="help-note">
+        <strong>Need help?</strong>
+        <span>Use the self-service tools below.</span>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <section class="card">
+      <div class="section-heading">
+        <div class="section-icon order-icon">O</div>
+        <div>
+          <h2>Order Status</h2>
+          <p>Enter an order number or choose a sample order.</p>
+        </div>
+      </div>
+      <label for="orderId" class="field-label">Enter Order Number</label>
+      <div class="form-row">
+        <input id="orderId" type="text" placeholder="Example: ORD004">
+        <button id="orderBtn" class="order-button">Check Order</button>
+      </div>
+      <div class="shortcut-panel order-shortcuts">
+        <div class="shortcut-title">Sample Orders - click to use</div>
+        <div class="chip-group">
+          <button type="button" class="chip order-chip" data-order="ORD001">ORD001</button>
+          <button type="button" class="chip order-chip" data-order="ORD002">ORD002</button>
+          <button type="button" class="chip order-chip" data-order="ORD003">ORD003</button>
+          <button type="button" class="chip order-chip" data-order="ORD004">ORD004</button>
+          <button type="button" class="chip order-chip" data-order="ORD005">ORD005</button>
+          <button type="button" class="chip order-chip" data-order="ORD006">ORD006</button>
+          <button type="button" class="chip order-chip" data-order="ORD007">ORD007</button>
+          <button type="button" class="chip order-chip" data-order="ORD008">ORD008</button>
+          <button type="button" class="chip order-chip" data-order="ORD009">ORD009</button>
+          <button type="button" class="chip order-chip" data-order="ORD010">ORD010</button>
+        </div>
+      </div>
+      <div id="orderResult" class="result-box hidden"></div>
+    </section>
+    <section class="card">
+      <div class="section-heading">
+        <div class="section-icon stock-icon">S</div>
+        <div>
+          <h2>Stock Availability</h2>
+          <p>Enter a product and size, or use the shortcuts below.</p>
+        </div>
+      </div>
+      <div class="shortcut-panel stock-shortcuts">
+        <div class="shortcut-title">Available Items - click to use</div>
+        <div class="chip-group">
+          <button type="button" class="chip product-chip" data-product="Blue T-Shirt">Blue T-Shirt</button>
+          <button type="button" class="chip product-chip" data-product="Black Hoodie">Black Hoodie</button>
+          <button type="button" class="chip product-chip" data-product="Running Shoes">Running Shoes</button>
+          <button type="button" class="chip product-chip" data-product="Denim Jacket">Denim Jacket</button>
+        </div>
+      </div>
+      <label for="product" class="field-label">Enter or select product</label>
+      <input id="product" type="text" placeholder="Example: Blue T-Shirt">
+      <label for="size" class="field-label">Enter or select size</label>
+      <div class="form-row">
+        <input id="size" type="text" placeholder="Example: M or 41">
+        <button id="stockBtn" class="stock-button">Check Stock</button>
+      </div>
+      <div class="quick-size-panel">
+        <div class="shortcut-title">Quick Sizes</div>
+        <div class="chip-group">
+          <button type="button" class="chip size-chip" data-size="S">S</button>
+          <button type="button" class="chip size-chip" data-size="M">M</button>
+          <button type="button" class="chip size-chip" data-size="L">L</button>
+          <button type="button" class="chip size-chip" data-size="40">40</button>
+          <button type="button" class="chip size-chip" data-size="41">41</button>
+          <button type="button" class="chip size-chip" data-size="42">42</button>
+        </div>
+      </div>
+      <div id="stockResult" class="result-box hidden"></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div><strong>Secure • Fast • Reliable</strong></div>
+    <div>Northstar Retail Co. - Support Deflection MVP</div>
+    <div><strong>PLP Group 33</strong></div>
+  </footer>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
