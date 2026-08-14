@@ -268,3 +268,30 @@ button:hover {
     text-align: center;
   }
 }
+.stock-card select {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 16px;
+  margin-bottom: 12px;
+  border: 1px solid #b8c4d6;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+.stock-card select:focus {
+  outline: none;
+  border-color: #2f72e8;
+  box-shadow: 0 0 0 4px rgba(47,114,232,0.12);
+}
+.stock-card select:disabled {
+  background: #e5e7eb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+.stock-help {
+  margin-top: 0;
+  color: #667085;
+  font-size: 14px;
+}
