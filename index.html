@@ -50,41 +50,32 @@
       </div>
       <div id="orderResult" class="result-box hidden"></div>
     </section>
-    <section class="card">
+    <section class="card stock-card">
       <div class="section-heading">
         <div class="section-icon stock-icon">S</div>
         <div>
           <h2>Stock Availability</h2>
-          <p>Enter a product and size, or use the shortcuts below.</p>
+          <p>Select a product and size to check availability.</p>
         </div>
       </div>
-      <div class="shortcut-panel stock-shortcuts">
-        <div class="shortcut-title">Available Items - click to use</div>
-        <div class="chip-group">
-          <button type="button" class="chip product-chip" data-product="Blue T-Shirt">Blue T-Shirt</button>
-          <button type="button" class="chip product-chip" data-product="Black Hoodie">Black Hoodie</button>
-          <button type="button" class="chip product-chip" data-product="Running Shoes">Running Shoes</button>
-          <button type="button" class="chip product-chip" data-product="Denim Jacket">Denim Jacket</button>
-        </div>
-      </div>
-      <label for="product" class="field-label">Enter or select product</label>
-      <input id="product" type="text" placeholder="Example: Blue T-Shirt">
-      <label for="size" class="field-label">Enter or select size</label>
+      <label for="product" class="field-label">Product</label>
+      <select id="product">
+        <option value="">Select product</option>
+        <option value="Blue T-Shirt">Blue T-Shirt</option>
+        <option value="Black Hoodie">Black Hoodie</option>
+        <option value="Running Shoes">Running Shoes</option>
+        <option value="Denim Jacket">Denim Jacket</option>
+      </select>
+      <label for="size" class="field-label">Size</label>
       <div class="form-row">
-        <input id="size" type="text" placeholder="Example: M or 41">
+        <select id="size" disabled>
+          <option value="">Select size</option>
+        </select>
         <button id="stockBtn" class="stock-button">Check Stock</button>
       </div>
-      <div class="quick-size-panel">
-        <div class="shortcut-title">Quick Sizes</div>
-        <div class="chip-group">
-          <button type="button" class="chip size-chip" data-size="S">S</button>
-          <button type="button" class="chip size-chip" data-size="M">M</button>
-          <button type="button" class="chip size-chip" data-size="L">L</button>
-          <button type="button" class="chip size-chip" data-size="40">40</button>
-          <button type="button" class="chip size-chip" data-size="41">41</button>
-          <button type="button" class="chip size-chip" data-size="42">42</button>
-        </div>
-      </div>
+      <p class="stock-help">
+        Choose a product first. Only sizes for that product will appear.
+      </p>
       <div id="stockResult" class="result-box hidden"></div>
     </section>
   </main>
@@ -93,6 +84,6 @@
     <div>Northstar Retail Co. - Support Deflection MVP</div>
     <div><strong>PLP Group 33</strong></div>
   </footer>
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>
