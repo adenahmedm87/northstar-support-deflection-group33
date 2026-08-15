@@ -102,23 +102,22 @@ Both supported request types are routed through the same production workflow.
 ---
 
 
+Delete that whole section and paste this instead:
+
+````md
 ## End-to-End Architecture
 
+```mermaid
+flowchart TD
+    A[Customer] --> B[GitHub Pages Frontend]
+    B --> C[n8n Production Webhook]
+    C --> D[Switch]
+    D -->|Order| E[Order Code]
+    D -->|Stock| F[Stock Code]
+    E --> G[Respond to Webhook]
+    F --> G
+    G --> H[Customer Result]
 
-```text
-Customer
-   ↓
-GitHub Pages Frontend
-   ↓
-n8n Production Webhook
-   ↓
-Switch
-   ├── Order → Order Code
-   └── Stock → Stock Code
-   ↓
-Respond to Webhook
-   ↓
-Customer Result
 Evidence Summary
 
 The screenshots demonstrate that:
