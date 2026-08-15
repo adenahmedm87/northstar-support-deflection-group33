@@ -115,6 +115,8 @@ https://adenahmedm87.github.io/northstar-support-deflection-group33/
 │   ├── orders.json
 │   └── stock.json
 └── diagnostics/
+```
+
 
 ## Sample Test Cases
 
