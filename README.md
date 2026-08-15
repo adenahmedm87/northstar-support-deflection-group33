@@ -106,7 +106,6 @@ https://adenahmedm87.github.io/northstar-support-deflection-group33/
 ├── README.md
 ├── CHARTER.md
 ├── GO-LIVE-READINESS.md
-├── AUDIT-SNAPSHOT.md
 ├── Northstar Support Deflection MVP.json
 ├── index.html
 ├── style.css
@@ -114,7 +113,20 @@ https://adenahmedm87.github.io/northstar-support-deflection-group33/
 ├── data/
 │   ├── orders.json
 │   └── stock.json
-└── diagnostics/
+├── diagnostics/
+├── docs/
+│   ├── AUDIT-LOG.md
+│   ├── WEBHOOK-CONTRACT.md
+│   ├── SCREENSHOT-EVIDENCE.md
+│   ├── live-frontend.png
+│   ├── order-status-success.png
+│   ├── stock-in-stock.png
+│   ├── stock-out-of-stock.png
+│   └── n8n-workflow.png
+└── tests/
+    ├── TEST-CASES.md
+    └── TEST-RESULTS.md
+
 ```
 
 
