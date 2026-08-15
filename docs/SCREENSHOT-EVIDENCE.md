@@ -102,9 +102,6 @@ Both supported request types are routed through the same production workflow.
 ---
 
 
-Delete that whole section and paste this instead:
-
-````md
 ## End-to-End Architecture
 
 ```mermaid
