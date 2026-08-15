@@ -2,7 +2,8 @@
 
 ## Project Information
 
-- **Team:** PLP Group 33
+- **Team Name:** PentaCore
+- **Group:** PLP Group 33
 - **Project:** Northstar Retail Support Deflection MVP
 - **MVP Scope:** Order Status and Stock Availability
 - **Frontend:** GitHub Pages
