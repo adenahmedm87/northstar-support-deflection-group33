@@ -1,141 +1,139 @@
 # Northstar Support Deflection MVP - Screenshot Evidence
 
+
 ## Purpose
 
-This file records visual evidence that the Northstar Retail Support Deflection MVP is working end-to-end.
 
-The screenshots stored in this folder should show the live frontend, working Order Status responses, working Stock Availability responses and the n8n workflow.
+This page provides visual evidence that the Northstar Retail Support Deflection MVP works end-to-end.
 
----
 
-## Screenshot 1 - Live Frontend
+The MVP supports:
 
-**Suggested filename:** `live-frontend.png`
 
-This screenshot should show the published GitHub Pages interface.
+1. Order Status
+2. Stock Availability
 
-It should clearly show:
-
-- Northstar Self-Service Support heading
-- Order Status section
-- Stock Availability section
-- sample Order buttons
-- product and size controls
-- the final page styling
 
 ---
 
-## Screenshot 2 - Successful Order Status Check
 
-**Suggested filename:** `order-status-success.png`
+## 1. Live Frontend
 
-Use a known valid Order ID such as:
 
-`ORD004`
+The published GitHub Pages interface provides separate self-service tools for Order Status and Stock Availability.
 
-The screenshot should show the returned Order details, including:
 
-- Order ID
-- Product
-- Status
-- Tracking number
-- Delivery information
-- Fulfilment Centre
+![Northstar Live Frontend](live-frontend.png)
 
-This proves the Order Status flow is working from the frontend through n8n.
 
 ---
 
-## Screenshot 3 - Successful Stock Availability Check
 
-**Suggested filename:** `stock-in-stock.png`
+## 2. Order Status - Successful Response
 
-Suggested test:
 
-- Product: Blue T-Shirt
-- Size: M
+This screenshot shows a successful Order Status request returning customer-facing order information.
 
-The screenshot should show an `In Stock` result.
 
-This proves the Stock Availability flow is working from the frontend through n8n.
+![Order Status Success](order-status-success.png)
 
----
 
-## Screenshot 4 - Out of Stock Result
+This demonstrates the flow:
 
-**Suggested filename:** `stock-out-of-stock.png`
 
-Suggested test:
+Frontend → n8n Webhook → Switch → Order Code → Respond to Webhook → Frontend
 
-- Product: Blue T-Shirt
-- Size: L
-
-The screenshot should show:
-
-- Out of Stock status
-- quantity information if displayed
-- restock information if displayed
-- clear status-aware styling
 
 ---
 
-## Screenshot 5 - n8n Workflow
 
-**Suggested filename:** `n8n-workflow.png`
+## 3. Stock Availability - In Stock
 
-The screenshot should show the final n8n workflow, including:
+
+This screenshot shows a successful Stock Availability request for an available product and size.
+
+
+![Stock In Stock](stock-in-stock.png)
+
+
+This confirms that the Stock branch successfully returns information to the live frontend.
+
+
+---
+
+
+## 4. Stock Availability - Out of Stock
+
+
+This screenshot shows how the system handles an unavailable product and size combination.
+
+
+![Stock Out of Stock](stock-out-of-stock.png)
+
+
+The customer receives clear stock-status feedback rather than an incorrect availability response.
+
+
+---
+
+
+## 5. n8n Automation Workflow
+
+
+The automation workflow connects the frontend to the Order Status and Stock Availability logic.
+
+
+![n8n Workflow](n8n-workflow.png)
+
+
+The workflow contains:
+
 
 - Webhook
 - Switch
 - Order Code
 - Stock Code
 - Respond to Webhook
-- both Order and Stock connections
 
-This provides visual evidence of the automation architecture.
 
----
+Both supported request types are routed through the same production workflow.
 
-## Screenshot 6 - Validation or Error Handling
-
-**Suggested filename:** `validation-error.png`
-
-This screenshot can show one example such as:
-
-- blank Order ID
-- unknown Order ID
-- incomplete Stock selection
-- unknown product and size combination
-
-The result should show a friendly customer-facing message.
 
 ---
 
-## Evidence Summary
 
-Together, these screenshots demonstrate:
+## End-to-End Architecture
 
-1. The frontend is published and accessible.
-2. Order Status works end-to-end.
-3. Stock Availability works end-to-end.
-4. n8n correctly routes both supported request types.
-5. Both branches return responses to the frontend.
-6. Validation and error handling are visible to the customer.
-
----
-
-## Final Evidence Folder
-
-Recommended structure:
 
 ```text
-docs/
-├── AUDIT-LOG.md
-├── WEBHOOK-CONTRACT.md
-├── SCREENSHOT-EVIDENCE.md
-├── live-frontend.png
-├── order-status-success.png
-├── stock-in-stock.png
-├── stock-out-of-stock.png
-├── n8n-workflow.png
-└── validation-error.png
+Customer
+   ↓
+GitHub Pages Frontend
+   ↓
+n8n Production Webhook
+   ↓
+Switch
+   ├── Order → Order Code
+   └── Stock → Stock Code
+   ↓
+Respond to Webhook
+   ↓
+Customer Result
+Evidence Summary
+
+The screenshots demonstrate that:
+
+The frontend is published and accessible.
+Order Status works through the live interface.
+Stock Availability works through the live interface.
+Both in-stock and out-of-stock responses are handled clearly.
+n8n routes both supported request types.
+Responses return from n8n to the customer-facing frontend.
+Final MVP Status
+
+The Northstar Support Deflection MVP successfully demonstrates two working customer self-service categories:
+
+Order Status
+Stock Availability
+
+The frontend, n8n workflow, sample data and customer-facing responses operate together as an end-to-end MVP.
