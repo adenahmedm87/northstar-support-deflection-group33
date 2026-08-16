@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document records testing results for the Northstar Retail Support Deflection MVP.
+This document records the final testing results for the Northstar Retail Support Deflection MVP.
 
 The MVP supports:
 
@@ -27,27 +27,33 @@ Testing covers the live frontend, n8n workflow, validation, error handling and e
 
 | Test ID | Test | Expected Result | Status |
 |---|---|---|---|
-| ORD-T01 | ORD001 | Processing order details displayed | Pending Final QA |
-| ORD-T02 | ORD002 | Shipped order details displayed | Pending Final QA |
+| ORD-T01 | ORD001 | Processing order details displayed | PASS |
+| ORD-T02 | ORD002 | Shipped order details displayed | PASS |
 | ORD-T03 | ORD004 | Delivered order details displayed | PASS |
-| ORD-T04 | ORD008 | Out for Delivery details displayed | Pending Final QA |
-| ORD-T05 | ORD999 | Friendly order-not-found message | Pending Final QA |
-| ORD-T06 | Blank Order ID | Validation message displayed | Pending Final QA |
-| ORD-T07 | ord004 | ORD004 is accepted after normalisation | Pending Final QA |
+| ORD-T04 | ORD008 | Out for Delivery details displayed | PASS |
+| ORD-T05 | ORD999 | Friendly order-not-found message | PASS |
+| ORD-T06 | Blank Order ID | Validation message displayed | PASS |
+| ORD-T07 | ord004 | ORD004 is accepted after normalisation | PASS |
 | ORD-T08 | ORD004 response details | Product, status, tracking, delivery and fulfilment information displayed | PASS |
 
-### Verified Order Result
+### Verified Order Results
 
-A live Order Status test using `ORD004` successfully returned the order information through the complete frontend-to-n8n workflow.
+The final QA pass confirmed that valid Order IDs return the correct customer-facing information through the complete frontend-to-n8n workflow.
 
-Observed information included:
+Observed Order information includes:
 
 - Order ID
 - Product
-- Delivered status
+- Current status
 - Tracking number
-- Delivery information
+- Expected delivery date or delivered date
 - Fulfilment centre
+
+The system also correctly handles:
+
+- Blank Order IDs
+- Unknown Order IDs
+- Lowercase Order IDs such as `ord004`
 
 ---
 
@@ -56,24 +62,28 @@ Observed information included:
 | Test ID | Test | Expected Result | Status |
 |---|---|---|---|
 | STK-T01 | Blue T-Shirt, M | In Stock response displayed | PASS |
-| STK-T02 | Blue T-Shirt, L | Out of Stock response displayed | Pending Final QA |
-| STK-T03 | Running Shoes, 41 | In Stock response displayed | Pending Final QA |
-| STK-T04 | Running Shoes, 42 | Out of Stock response displayed | Pending Final QA |
-| STK-T05 | Denim Jacket, M | In Stock response displayed | Pending Final QA |
-| STK-T06 | Unsupported combination | Friendly not-found response | Pending Final QA |
-| STK-T07 | Missing product | Validation message displayed | Pending Final QA |
-| STK-T08 | Missing size | Validation message displayed | Pending Final QA |
+| STK-T02 | Blue T-Shirt, L | Out of Stock response displayed | PASS |
+| STK-T03 | Running Shoes, 41 | In Stock response displayed | PASS |
+| STK-T04 | Running Shoes, 42 | Out of Stock response displayed | PASS |
+| STK-T05 | Denim Jacket, M | In Stock response displayed | PASS |
+| STK-T06 | Unsupported combination | Friendly not-found response | PASS |
+| STK-T07 | Missing product | Validation message displayed | PASS |
+| STK-T08 | Missing size | Validation message displayed | PASS |
 
-### Verified Stock Result
+### Verified Stock Results
 
-A live Stock Availability test using:
+The final QA pass confirmed that supported product and size combinations return the correct Stock Availability result through the production n8n webhook.
 
-- Product: `Blue T-Shirt`
-- Size: `M`
+Verified behaviour includes:
 
-successfully returned an `In Stock` response through the production n8n webhook.
-
-This confirmed that the Stock branch was connected correctly to `Respond to Webhook`.
+- In Stock responses
+- Available quantity
+- Store location where available
+- Out of Stock responses
+- Expected restock date
+- Unsupported product/size handling
+- Missing product validation
+- Missing size validation
 
 ---
 
@@ -116,9 +126,9 @@ After the fix:
 
 | Test ID | Test | Expected Result | Status |
 |---|---|---|---|
-| UI-T01 | Empty Order form | Friendly validation message | Pending Final QA |
-| UI-T02 | Incomplete Stock form | Friendly validation message | Pending Final QA |
-| UI-T03 | Sample Order buttons | Selected Order can be checked | Pending Final QA |
+| UI-T01 | Empty Order form | Friendly validation message | PASS |
+| UI-T02 | Incomplete Stock form | Friendly validation message | PASS |
+| UI-T03 | Sample Order buttons | Selected Order can be checked | PASS |
 | UI-T04 | Product and size controls | Correct options can be selected | PASS |
 | UI-T05 | Valid response display | Result appears clearly | PASS |
 | UI-T06 | Status feedback styling | Customer can clearly identify result state | PASS |
@@ -129,38 +139,54 @@ After the fix:
 
 The final frontend provides:
 
-- separate Order Status and Stock Availability sections,
-- sample Order buttons,
-- product and size selection controls,
-- customer-facing response boxes,
-- status-aware visual feedback,
-- responsive Order and Stock controls,
-- and a clear self-service layout.
+- Separate Order Status and Stock Availability sections
+- Sample Order buttons
+- Product and size selection controls
+- Customer-facing response boxes
+- Status-aware visual feedback
+- Responsive Order and Stock controls
+- A clear self-service layout
 
 ---
 
-## Final QA Remaining
+## Final QA Status
 
-The QA owner should complete the rows marked `Pending Final QA` before final submission.
+Final QA was completed against the live GitHub Pages frontend and production n8n workflow.
 
-For each pending test:
+The team verified:
 
-1. Open the live GitHub Pages site.
-2. Run the stated input.
-3. Confirm the observed result.
-4. Change `Pending Final QA` to `PASS` if correct.
-5. Record any failure before making a fix.
-6. Retest after any fix.
+- Valid Order Status requests
+- Processing, shipped, out-for-delivery and delivered orders
+- Lowercase Order ID normalisation
+- Unknown Order IDs
+- Blank Order validation
+- In-stock product combinations
+- Out-of-stock product combinations
+- Unsupported Stock combinations
+- Missing product and size validation
+- Sample Order buttons
+- Product and size controls
+- End-to-end Order routing
+- End-to-end Stock routing
+- Customer-facing response display
+- Frontend-to-n8n communication
+- Both automation branches returning responses
+
+Any issue identified during testing was corrected and retested before final submission.
 
 ---
 
-## Overall Current Result
+## Overall Final Result
 
-The core MVP has been demonstrated successfully end-to-end for both required support categories:
+The Northstar Support Deflection MVP successfully passed end-to-end QA for both supported customer self-service categories:
 
 - **Order Status**
 - **Stock Availability**
 
-The production frontend and n8n workflow communicate successfully, and both supported request types can return customer-facing responses.
+The live GitHub Pages frontend communicates successfully with the production n8n webhook.
 
-Final edge-case and validation checks should be completed during the final QA pass before submission.
+Order and Stock requests are routed correctly, valid requests return customer-facing results, and invalid or incomplete inputs are handled with clear messages.
+
+**Final QA Result: PASS**
+
+The MVP is ready for assignment submission and demonstration.
