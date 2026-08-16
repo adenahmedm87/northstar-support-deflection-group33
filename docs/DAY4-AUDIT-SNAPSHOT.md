@@ -126,25 +126,25 @@ The following screenshots were captured during development and show the MVP befo
 
 ### Repository State
 
-![Day 4 repository state](day4-evidence/day4-repository-state.jpg)
+![Day 4 repository state](day4-repository-state.jpg)
 
 The repository was still evolving, with the main frontend and data files present but the final documentation and evidence package not yet complete.
 
 ### Frontend Still Under Development
 
-![Day 4 frontend basic code](day4-evidence/day4-frontend-basic-code.jpg)
+![Day 4 frontend basic code](day-frontend-basic-code.jpg)
 
 The earlier frontend structure was still basic and included features that were later adjusted as the MVP scope was refined.
 
 ### Frontend-to-n8n Integration Not Yet Final
 
-![Day 4 webhook placeholder](day4-evidence/day4-webhook-placeholder.jpg)
+![Day 4 webhook placeholder](day4-webhook-placeholder.jpg)
 
 At this stage, the frontend JavaScript still contained a placeholder for the n8n production webhook URL, showing that the final frontend-to-automation connection had not yet been completed.
 
 ### n8n Routing Under Testing
 
-![Day 4 n8n Switch testing](day4-evidence/day4-n8n-switch-testing.jpg)
+![Day 4 n8n Switch testing](day4-n8n-switch-testing.jpg)
 
 The n8n Switch routing configuration was still being tested. The screenshot shows the workflow before final request data and routing validation were complete.
 
